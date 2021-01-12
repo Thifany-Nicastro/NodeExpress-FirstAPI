@@ -1,5 +1,3 @@
-// const fs = require('fs')
-// const { join } = fs
 const express = require('express')
 const router = express.Router();
 
@@ -8,15 +6,15 @@ router.get('/', function (req, res) {
 })
 
 router.post('/', function (req, res) {
-    res.send('Got a POST request')
+    res.send('Create user')
 })
 
-router.put('/user', function (req, res) {
-    res.send('Got a PUT request at /user')
+router.put('/:id', function (req, res) {
+    res.send('Update user')
 })
 
-router.delete('/user', function (req, res) {
-    res.send('Got a DELETE request at /user')
+router.delete('/:id', function (req, res) {
+    res.send('Delete user')
 })
 
 module.exports = router;
