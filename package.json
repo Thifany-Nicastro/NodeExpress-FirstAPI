@@ -2,12 +2,10 @@
   "name": "nodeexpress-firstapi",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "build": "babel src -d dist",
-    "start": "npm run build && node dist",
-    "restart": "rimraf dist && npm run start",
-    "dev": "nodemon --exec npm run restart"
+    "build": "rimraf dist && webpack --mode production",
+    "serve": "rimraf dist && webpack serve --mode development"
   },
   "repository": {
     "type": "git",
@@ -30,6 +28,7 @@
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
     "webpack": "^5.13.0",
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.2"
