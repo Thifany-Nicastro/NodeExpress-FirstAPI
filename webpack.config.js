@@ -1,14 +1,20 @@
 const path = require('path');
+const NodemonPlugin = require('nodemon-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
+    target: 'node',
+    plugins: [
+        new NodemonPlugin()
+    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'app.bundle.js'
+        filename: 'bundle.js'
     },
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
-        port: 3000
+        port: 3000,
+        publicPath: '/'
     },
     module: {
         rules: [
