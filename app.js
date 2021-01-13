@@ -1,4 +1,6 @@
-const express = require('express')
+// const express = require('express')
+import Express from 'express';
+
 const dotenv = require('dotenv').config()
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
@@ -17,3 +19,21 @@ app.use(bodyParser.json());
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+
+// import Express from 'express';
+
+// export class Server {
+//   app = Express();
+
+//   startup() {
+//     this.setupRoutes();
+
+//     this.app.listen(3000, () => console.log("Listening..."));
+//   }
+
+//   setupRoutes() {
+//     this.app.get("/teste", (req, res) => {
+//       res.send("Funcionando :)");
+//     });
+//   }
+// }
