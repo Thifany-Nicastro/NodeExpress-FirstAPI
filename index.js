@@ -1,6 +1,5 @@
-import Express from 'express';
-// import { Server } from "./Server"
+import { Server } from "./Server"
 
-// const server = new Server()
+const server = new Server()
 
-// server.startup()
+server.startup()

@@ -8,7 +8,7 @@ module.exports = {
     },
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
-        publicPath: '/assets/'
+        port: 3000
     },
     module: {
         rules: [
