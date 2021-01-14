@@ -5,19 +5,15 @@ import { Router } from 'express';
 import * as userController from '../controllers/userController';
 const router = Router();
 
-router.get('/', userController.fetchAll);
+router.get('/', userController.indexUser);
 
-router.post('/', function (req, res) {
-    res.send('Create user')
-})
+router.get('/:id', userController.showUser);
 
-router.put('/:id', function (req, res) {
-    res.send('Update user')
-})
+router.post('/', userController.storeUser)
 
-router.delete('/:id', function (req, res) {
-    res.send('Delete user')
-})
+router.put('/:id', userController.updateUser)
+
+router.delete('/:id', userController.deleteUser)
 
 // module.exports = router;
 export default router;
