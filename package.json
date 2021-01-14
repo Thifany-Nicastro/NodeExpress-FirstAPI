@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && webpack --mode production",
-    "dev": "webpack serve --mode development"
+    "dev": "webpack -w --mode development"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "http-status-codes": "^2.1.4",
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.11",
     "rimraf": "^3.0.2"

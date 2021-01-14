@@ -1,5 +1,5 @@
-const express = require('express')
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
 router.get('/', function (req, res) {
     res.send('All posts')
@@ -17,4 +17,4 @@ router.delete('/:id', function (req, res) {
     res.send('Delete post')
 })
 
-module.exports = router;
+export default router;
