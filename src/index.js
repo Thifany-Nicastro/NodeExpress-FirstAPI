@@ -1,10 +1,7 @@
 import express from 'express';
-const dotenv = require('dotenv').config()
+import 'dotenv/config';
 import bodyParser from 'body-parser';
-const mongoose = require('mongoose')
-
-// const userRoutes = require('./routes/userRoutes')
-// const postRoutes = require('./routes/postRoutes')
+import mongoose from 'mongoose';
 import userRoutes from './routes/userRoutes';
 import postRoutes from './routes/postRoutes';
 

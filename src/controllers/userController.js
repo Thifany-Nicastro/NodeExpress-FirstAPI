@@ -1,4 +1,6 @@
 import HttpStatus from 'http-status-codes';
+import { uuid } from 'uuidv4';
+import User from '../models/user';
 
 /**
  * Get all users.
@@ -54,5 +56,5 @@ export function updateUser(request, response, next) {
  * @param {Function} next
  */
 export function deleteUser(request, response, next) {
-    response.json({ user: `Delete user ${request.params.id}` });
+    response.json({ user: `Delete user ${uuid()}` });
 }
