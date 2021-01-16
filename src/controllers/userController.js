@@ -1,6 +1,6 @@
 import HttpStatus from 'http-status-codes';
 import { uuid } from 'uuidv4';
-import User from '../models/user';
+import User from '../models/userModel';
 
 /**
  * Get all users.
@@ -33,7 +33,10 @@ export function showUser(request, response, next) {
  * @param {Function} next
  */
 export function storeUser(request, response, next) {
-  const { name } = request.body
+  const { name, email, password } = request.body
+
+  const user = new User(request.body);
+  user.save();
 
   response.status(HttpStatus.CREATED).json({
     uuid: uuid(),
