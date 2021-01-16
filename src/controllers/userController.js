@@ -10,7 +10,7 @@ import User from '../models/user';
  * @param {Function} next
  */
 export function indexUser(request, response, next) {
-    response.json({ users: 'All users! :D' });
+  response.json({ users: 'All users! :D' });
 }
 
 /**
@@ -21,8 +21,8 @@ export function indexUser(request, response, next) {
  * @param {Function} next
  */
 export function showUser(request, response, next) {
-    const { id } = request.params
-    response.json({ user: `Show user ${id}` });
+  const { id } = request.params
+  response.json({ user: `Show user ${id}` });
 }
 
 /**
@@ -33,8 +33,12 @@ export function showUser(request, response, next) {
  * @param {Function} next
  */
 export function storeUser(request, response, next) {
-    const { name } = request.body
-    response.json({ user: `Store user ${name}` });
+  const { name } = request.body
+
+  response.status(HttpStatus.CREATED).json({
+    uuid: uuid(),
+    user: `Store user ${name}`
+  });
 }
 
 /**
@@ -45,7 +49,7 @@ export function storeUser(request, response, next) {
  * @param {Function} next
  */
 export function updateUser(request, response, next) {
-    response.json({ user: `Update user ${request.params.id}` });
+  response.json({ user: `Update user ${request.params.id}` });
 }
 
 /**
@@ -56,5 +60,5 @@ export function updateUser(request, response, next) {
  * @param {Function} next
  */
 export function deleteUser(request, response, next) {
-    response.json({ user: `Delete user ${uuid()}` });
+  response.sendStatus(HttpStatus.NO_CONTENT);
 }

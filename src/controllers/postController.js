@@ -10,7 +10,7 @@ import post from '../models/post';
  * @param {Function} next
  */
 export function indexpost(request, response, next) {
-    response.json({ posts: 'All posts! :D' });
+  response.json({ posts: 'All posts! :D' });
 }
 
 /**
@@ -21,8 +21,8 @@ export function indexpost(request, response, next) {
  * @param {Function} next
  */
 export function showpost(request, response, next) {
-    const { id } = request.params
-    response.json({ post: `Show post ${id}` });
+  const { id } = request.params
+  response.json({ post: `Show post ${id}` });
 }
 
 /**
@@ -33,8 +33,8 @@ export function showpost(request, response, next) {
  * @param {Function} next
  */
 export function storepost(request, response, next) {
-    const { name } = request.body
-    response.json({ post: `Store post ${name}` });
+  const { name } = request.body
+  response.json({ post: `Store post ${name}` });
 }
 
 /**
@@ -45,7 +45,7 @@ export function storepost(request, response, next) {
  * @param {Function} next
  */
 export function updatepost(request, response, next) {
-    response.json({ post: `Update post ${request.params.id}` });
+  response.json({ post: `Update post ${request.params.id}` });
 }
 
 /**
@@ -56,5 +56,5 @@ export function updatepost(request, response, next) {
  * @param {Function} next
  */
 export function deletepost(request, response, next) {
-    response.json({ post: `Delete post ${uuid()}` });
+  response.json({ post: `Delete post ${uuid()}` });
 }
