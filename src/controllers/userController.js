@@ -22,7 +22,14 @@ export function indexUser(request, response, next) {
  */
 export function showUser(request, response, next) {
   const { id } = request.params
-  response.json({ user: `Show user ${id}` });
+
+  User.find({ _id: id })
+    .then(result => {
+      response.json(result);
+    })
+    .catch(err => {
+      response.status(HttpStatus.NOT_FOUND).json({ message: 'User not found' });
+    });
 }
 
 /**
@@ -35,13 +42,24 @@ export function showUser(request, response, next) {
 export function storeUser(request, response, next) {
   const { name, email, password } = request.body
 
-  const user = new User(request.body);
-  user.save();
-
-  response.status(HttpStatus.CREATED).json({
+  const user = new User({
     uuid: uuid(),
-    user: `Store user ${name}`
+    name: name,
+    email: email,
+    password: password
   });
+
+  user.save()
+    .then(result => {
+      response.status(HttpStatus.CREATED).json({
+        message: 'User stored!',
+        user: user
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      response.status(HttpStatus.BAD_REQUEST).json({ message: err.message });
+    });
 }
 
 /**
@@ -63,5 +81,13 @@ export function updateUser(request, response, next) {
  * @param {Function} next
  */
 export function deleteUser(request, response, next) {
-  response.sendStatus(HttpStatus.NO_CONTENT);
+  const { id } = request.params;
+
+  User.deleteOne({ _id: id })
+    .then(result => {
+      response.sendStatus(HttpStatus.NO_CONTENT);
+    })
+    .catch(err => {
+      response.status(HttpStatus.NOT_FOUND).json({ message: 'User not found' });
+    });
 }
