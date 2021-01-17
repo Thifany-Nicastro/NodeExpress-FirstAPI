@@ -10,7 +10,13 @@ import User from '../models/userModel';
  * @param {Function} next
  */
 export function indexUser(request, response, next) {
-  response.json({ users: 'All users! :D' });
+  User.find().sort({ createdAt: -1 })
+    .then(result => {
+      response.json(result);
+    })
+    .catch(err => {
+      response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: err.message });
+    });
 }
 
 /**
